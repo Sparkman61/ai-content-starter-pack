@@ -3,226 +3,713 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Content Starter Pack for Small Businesses</title>
-  <meta name="description" content="Get a ready-to-use AI Content Starter Pack for your small business: Google Business Profile post ideas, social captions, review reply templates, and promo copy for $39." />
+  <title>Google Business Profile Optimization by Lab Ventures</title>
+  <meta
+    name="description"
+    content="Get your Google Business Profile optimized by a real person for $39. We update your description, services, review response templates, and post suggestions."
+  />
   <style>
     :root {
       --bg: #0b1020;
-      --panel: #131a2f;
+      --panel: rgba(19, 26, 47, 0.88);
+      --panel-strong: rgba(13, 18, 35, 0.96);
       --text: #eef2ff;
       --muted: #b7c0e0;
       --accent: #7c9cff;
       --accent2: #94f0c1;
-      --line: rgba(255,255,255,0.12);
-      --max: 1024px;
+      --danger: #ff8f99;
+      --line: rgba(255, 255, 255, 0.12);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      --max: 1120px;
+      --radius: 24px;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #0b1020 0%, #10182c 100%);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
       color: var(--text);
-      line-height: 1.5;
+      background:
+        radial-gradient(circle at top left, rgba(124, 156, 255, 0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(148, 240, 193, 0.12), transparent 24%),
+        linear-gradient(180deg, #0b1020 0%, #0f1730 52%, #0a1123 100%);
+      line-height: 1.55;
     }
-    a { color: var(--accent2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 24px; }
+
+    a {
+      color: var(--accent2);
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
     .hero {
-      padding: 72px 24px 40px;
+      padding: 72px 0 48px;
     }
-    .badge {
-      display: inline-block;
-      padding: 8px 12px;
+
+    .hero-shell {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-proof,
+    .section-card,
+    .form-shell {
+      background: var(--panel);
       border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-copy {
+      padding: 32px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
       border-radius: 999px;
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 20px;
+      border: 1px solid rgba(124, 156, 255, 0.28);
+      background: rgba(124, 156, 255, 0.1);
+      color: var(--accent2);
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      margin: 0;
+    }
+
     h1 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      line-height: 1.05;
-      margin: 0 0 16px;
-      max-width: 850px;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      max-width: 12ch;
+      margin-top: 18px;
     }
-    .sub {
-      font-size: 1.15rem;
+
+    .subhead {
+      font-size: 1.14rem;
       color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 28px;
+      max-width: 56ch;
+      margin: 18px 0 28px;
     }
-    .cta-row {
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       align-items: center;
-      margin-bottom: 18px;
     }
-    .btn {
-      display: inline-block;
-      padding: 14px 20px;
-      border-radius: 12px;
+
+    .button,
+    button {
+      border: 0;
+      border-radius: 14px;
+      padding: 15px 20px;
+      font: inherit;
       font-weight: 700;
       cursor: pointer;
-      transition: transform .18s ease, opacity .18s ease;
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
     }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .btn-primary {
-      background: var(--accent);
-      color: #0b1020;
+
+    .button:hover,
+    button:hover {
+      transform: translateY(-1px);
     }
-    .btn-secondary {
-      border: 1px solid var(--line);
+
+    .button-primary,
+    button {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #08101f;
+      box-shadow: 0 18px 40px rgba(124, 156, 255, 0.24);
+    }
+
+    .button-secondary {
       color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
     }
-    .mini {
+
+    .hero-note {
+      margin-top: 18px;
       color: var(--muted);
       font-size: 0.95rem;
     }
-    .grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      margin: 32px 0;
+
+    .hero-proof {
+      padding: 28px;
+      background:
+        linear-gradient(180deg, rgba(148, 240, 193, 0.08), transparent 42%),
+        var(--panel-strong);
     }
-    .card {
-      background: rgba(255,255,255,0.04);
+
+    .proof-kicker {
+      color: var(--accent2);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .proof-list,
+    .deliverables,
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .proof-list li,
+    .deliverables li,
+    .steps li {
+      position: relative;
+      padding-left: 22px;
+      margin-top: 14px;
+      color: var(--muted);
+    }
+
+    .proof-list li::before,
+    .deliverables li::before,
+    .steps li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      box-shadow: 0 0 0 5px rgba(124, 156, 255, 0.12);
+    }
+
+    main {
+      padding-bottom: 60px;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .section-card {
+      padding: 30px;
+    }
+
+    .section-card h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 12px;
+    }
+
+    .section-card > p {
+      max-width: 58ch;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 0 20px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      counter-reset: steps;
+    }
+
+    .steps li {
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--line);
       border-radius: 18px;
-      padding: 22px;
+      padding: 24px 20px 20px 52px;
+      margin: 0;
+      color: var(--text);
+      min-height: 140px;
     }
-    h2 {
-      font-size: 1.8rem;
-      margin: 0 0 14px;
-    }
-    h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-    section { padding: 28px 24px; }
-    ul { padding-left: 20px; }
-    .price {
-      font-size: 2.5rem;
+
+    .steps li::before {
+      counter-increment: steps;
+      content: counter(steps);
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      top: 22px;
       font-weight: 800;
-      margin: 8px 0;
+      color: #08101f;
     }
-    .footer {
-      border-top: 1px solid var(--line);
-      margin-top: 36px;
-      padding: 24px 0 56px;
+
+    .steps strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .form-shell {
+      padding: 32px;
+      margin-top: 8px;
+    }
+
+    .form-shell h2 {
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
+      margin-bottom: 10px;
+    }
+
+    .form-shell > p {
       color: var(--muted);
-      font-size: 0.95rem;
+      margin: 0 0 22px;
+      max-width: 62ch;
     }
+
+    form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .field-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .input-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(6, 10, 22, 0.72);
+      color: var(--text);
+      font: inherit;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(183, 192, 224, 0.78);
+    }
+
+    textarea {
+      min-height: 136px;
+      resize: vertical;
+    }
+
+    .help {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .checkbox-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+      margin-top: 4px;
+      flex: 0 0 auto;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .status {
+      min-height: 24px;
+      font-weight: 600;
+    }
+
+    .status.error {
+      color: var(--danger);
+    }
+
+    .status.success {
+      color: var(--accent2);
+    }
+
+    button[disabled] {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    footer {
+      padding: 0 0 60px;
+      color: var(--muted);
+    }
+
+    .footer-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 24px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-top: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-shell,
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-copy,
+      .hero-proof,
+      .section-card,
+      .form-shell {
+        padding: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero wrap">
-    <div class="badge">Simple done-for-you marketing content for small businesses</div>
-    <h1>Get your first month of business content written for you — for $39.</h1>
-    <p class="sub">The AI Content Starter Pack gives small businesses ready-to-use post ideas, social captions, review reply templates, and promo copy so you can look active online without spending hours writing everything yourself.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:labagent2026@gmail.com?subject=AI%20Content%20Starter%20Pack%20Interest">Contact to Order</a>
-      <a class="btn btn-secondary" href="#pricing">See What’s Included</a>
+  <header class="hero">
+    <div class="wrap hero-shell">
+      <section class="hero-copy">
+        <div class="eyebrow">Done-for-you GBP optimization</div>
+        <h1>Get your Google Business Profile optimized by a real person — for $39.</h1>
+        <p class="subhead">
+          We write your business description, update your services, add review response templates, and post suggestions. You just add us as a manager and we handle the rest.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#intake-form">Start Your Intake</a>
+          <a class="button button-secondary" href="#how-it-works">See How It Works</a>
+        </div>
+        <p class="hero-note">Lab Ventures implements the updates directly on your profile after checkout and manager access are confirmed.</p>
+      </section>
+
+      <aside class="hero-proof">
+        <div class="proof-kicker">What you walk away with</div>
+        <ul class="proof-list">
+          <li>Sharper profile messaging written around your real services and service area.</li>
+          <li>Response templates and post ideas that make your profile look active and trustworthy.</li>
+          <li>A hands-off workflow where your business only needs to submit details and grant access.</li>
+        </ul>
+      </aside>
     </div>
-    <div class="mini">Ready to order? Email <a href="mailto:labagent2026@gmail.com">labagent2026@gmail.com</a> with your business name, website or Google profile, and one sentence about what you need.</div>
   </header>
 
   <main class="wrap">
-    <section>
-      <div class="grid">
-        <div class="card">
-          <h3>Who this is for</h3>
-          <p>Local businesses, solo operators, and small teams that need a more active online presence but do not want to start from a blank page.</p>
-        </div>
-        <div class="card">
-          <h3>What problem it solves</h3>
-          <p>If your Google Business Profile or social pages look neglected, this gives you a fast starting point with usable copy you can post and adapt immediately.</p>
-        </div>
-        <div class="card">
-          <h3>How fast it helps</h3>
-          <p>You receive a simple content bundle you can start using right away instead of losing another week to “we should post more.”</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing">
-      <div class="card">
-        <h2>AI Content Starter Pack</h2>
-        <div class="price">$39</div>
-        <p>One low-cost starter bundle designed to help a small business show up online more consistently. Best for local businesses with weak, outdated, or inconsistent online presence.</p>
-        <ul>
-          <li>Google Business Profile post ideas and starter copy</li>
-          <li>Social media caption set for common business updates</li>
-          <li>Review reply templates for common customer situations</li>
-          <li>Simple promotional copy for offers, reminders, and announcements</li>
-          <li>Delivered in an easy-to-edit format</li>
+    <section class="section" aria-labelledby="included-heading">
+      <div class="section-card">
+        <h2 id="included-heading">What’s included</h2>
+        <p>The deliverables are built for Google Business Profile constraints and implemented directly on your profile by Lab Ventures.</p>
+        <ul class="deliverables">
+          <li>Optimized business description (keyword-aware, character-limit compliant)</li>
+          <li>Services list with descriptions</li>
+          <li>5 review response templates (positive, negative, neutral, detailed, brief)</li>
+          <li>3 Google post suggestions</li>
+          <li>Q&amp;A suggestions</li>
+          <li>All implemented directly on your profile by Lab Ventures</li>
         </ul>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:labagent2026@gmail.com?subject=Order%20AI%20Content%20Starter%20Pack">Request This Pack</a>
-          <a class="btn btn-secondary" href="mailto:labagent2026@gmail.com?subject=Question%20about%20AI%20Content%20Starter%20Pack">Ask a Question</a>
-        </div>
       </div>
     </section>
 
-    <section>
-      <h2>Why this works</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Cheaper than hiring a marketer</h3>
-          <p>This is an easy first step for businesses that want help now without committing to a large monthly service.</p>
-        </div>
-        <div class="card">
-          <h3>Better than doing nothing</h3>
-          <p>An inactive profile makes a business look stale. A simple content pack helps you look current and responsive.</p>
-        </div>
-        <div class="card">
-          <h3>Built for small business reality</h3>
-          <p>No complicated software. No long onboarding. Just practical content you can use and edit.</p>
-        </div>
+    <section class="section" id="how-it-works" aria-labelledby="how-heading">
+      <div class="section-card">
+        <h2 id="how-heading">How it works</h2>
+        <p>The process is intentionally simple so you can move from intake to implementation without a long back-and-forth.</p>
+        <ol class="steps">
+          <li>
+            <strong>Fill out the form below</strong>
+            2 minutes. Give us the details we need to write your profile well.
+          </li>
+          <li>
+            <strong>Add labagent2026@gmail.com as a manager on your GBP</strong>
+            That unlocks direct implementation once your payment is confirmed.
+          </li>
+          <li>
+            <strong>We optimize your profile within 2 business days</strong>
+            You’ll get email confirmation and next steps after checkout.
+          </li>
+        </ol>
       </div>
     </section>
 
-    <section>
-      <h2>Frequently asked questions</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Is this a subscription?</h3>
-          <p>No. This is a one-time starter product.</p>
-        </div>
-        <div class="card">
-          <h3>Will this be customized?</h3>
-          <p>The pack is designed to be practical and easy to adapt for a business. More tailored work can be discussed separately later.</p>
-        </div>
-        <div class="card">
-          <h3>How is it delivered?</h3>
-          <p>Digitally, in a format that is easy to copy, edit, and reuse.</p>
-        </div>
-        <div class="card">
-          <h3>How do I order?</h3>
-          <p>Email <a href="mailto:labagent2026@gmail.com">labagent2026@gmail.com</a> with your business name, website or Google Business Profile link, and what kind of business you run.</p>
-        </div>
-        <div class="card">
-          <h3>What if it is not a fit?</h3>
-          <p>Please review the refund policy before ordering. If you have questions first, reach out by email.</p>
-        </div>
+    <section class="section" id="intake-form" aria-labelledby="intake-heading">
+      <div class="form-shell">
+        <h2 id="intake-heading">Tell us about your business</h2>
+        <p>We review the quality of the submission before sending you to checkout so we can make sure there’s enough information to write compelling GBP content.</p>
+
+        <form id="gbp-intake-form" novalidate>
+          <input type="hidden" id="lead_id" name="lead_id" value="" />
+
+          <div class="field-grid">
+            <div class="input-wrap">
+              <label for="business_name">Business name</label>
+              <input id="business_name" name="business_name" type="text" required />
+            </div>
+
+            <div class="input-wrap">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="text" required />
+            </div>
+
+            <div class="input-wrap">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="text" />
+            </div>
+
+            <div class="input-wrap">
+              <label for="website">Website URL</label>
+              <input id="website" name="website" type="text" />
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label for="business_description">Business description</label>
+            <textarea
+              id="business_description"
+              name="business_description"
+              minlength="50"
+              required
+              placeholder="Tell us what makes your business different. What do you do, who do you serve, what sets you apart?"
+            ></textarea>
+          </div>
+
+          <div class="input-wrap">
+            <label for="top_services">Top 3-5 services</label>
+            <textarea
+              id="top_services"
+              name="top_services"
+              required
+              placeholder="List your main services, one per line"
+            ></textarea>
+          </div>
+
+          <div class="field-grid">
+            <div class="input-wrap">
+              <label for="hours">Hours of operation</label>
+              <input
+                id="hours"
+                name="hours"
+                type="text"
+                required
+                placeholder="e.g. Mon-Fri 8am-6pm, Sat 9am-3pm"
+              />
+            </div>
+
+            <div class="input-wrap">
+              <label for="service_area">Service area</label>
+              <input
+                id="service_area"
+                name="service_area"
+                type="text"
+                required
+                placeholder="e.g. Baltimore City and County, 20-mile radius"
+              />
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <div class="input-wrap">
+              <label for="gbp_url">GBP link (optional) — paste it here if you have it</label>
+              <input id="gbp_url" name="gbp_url" type="text" />
+            </div>
+
+            <div class="input-wrap">
+              <label for="preferred_tone">Preferred tone</label>
+              <select id="preferred_tone" name="preferred_tone">
+                <option value="Professional">Professional</option>
+                <option value="Friendly">Friendly</option>
+                <option value="Doesn't matter">Doesn't matter</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="checkbox-row">
+            <input id="manager_added" name="manager_added" type="checkbox" required />
+            <div>
+              <label for="manager_added">I've added labagent2026@gmail.com as a manager on my Google Business Profile</label>
+              <div class="help">
+                Need help? Follow Google’s instructions:
+                <a href="https://support.google.com/business/answer/3403100" target="_blank" rel="noreferrer">how to add a manager</a>.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button id="submit-button" type="submit">Continue to secure checkout</button>
+            <div id="form-status" class="status" aria-live="polite"></div>
+          </div>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <div>Contact: <a href="mailto:labagent2026@gmail.com">labagent2026@gmail.com</a></div>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="refund.html">Refund Policy</a>
+  <footer class="wrap">
+    <div class="footer-card">
+      <div>Lab Ventures • Direct Google Business Profile optimization for local businesses</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="refund.html">Refund Policy</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    const WORKER_BASE_URL = "https://openclaw-intake-worker.REPLACEME.workers.dev";
+    const form = document.getElementById("gbp-intake-form");
+    const submitButton = document.getElementById("submit-button");
+    const statusEl = document.getElementById("form-status");
+    const leadIdInput = document.getElementById("lead_id");
+    const managerCheckbox = document.getElementById("manager_added");
+
+    const params = new URLSearchParams(window.location.search);
+    leadIdInput.value = params.get("lead_id") || "";
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = type ? `status ${type}` : "status";
+    }
+
+    function setLoading(isLoading) {
+      submitButton.disabled = isLoading;
+      submitButton.textContent = isLoading ? "Checking your submission..." : "Continue to secure checkout";
+    }
+
+    function getTrimmedValue(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function validateForm() {
+      const requiredFields = ["business_name", "email", "business_description", "top_services", "hours", "service_area"];
+
+      for (const fieldId of requiredFields) {
+        if (!getTrimmedValue(fieldId)) {
+          return "Please complete all required fields before continuing.";
+        }
+      }
+
+      if (getTrimmedValue("business_description").length < 50) {
+        return "Please add at least 50 characters to the business description.";
+      }
+
+      if (!managerCheckbox.checked) {
+        return "Please confirm that you added labagent2026@gmail.com as a manager on your Google Business Profile.";
+      }
+
+      return "";
+    }
+
+    async function postJson(url, payload) {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      return response.json();
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setStatus("", "");
+
+      const validationMessage = validateForm();
+      if (validationMessage) {
+        setStatus(validationMessage, "error");
+        return;
+      }
+
+      setLoading(true);
+
+      const qualityPayload = {
+        business_description: getTrimmedValue("business_description"),
+        top_services: getTrimmedValue("top_services"),
+        hours: getTrimmedValue("hours"),
+        service_area: getTrimmedValue("service_area")
+      };
+
+      try {
+        const qualityResult = await postJson(`${WORKER_BASE_URL}/quality-gate`, qualityPayload);
+
+        if (!qualityResult.pass) {
+          setStatus(qualityResult.feedback || "Please add more specific details before continuing.", "error");
+          setLoading(false);
+          return;
+        }
+
+        const checkoutResult = await postJson(`${WORKER_BASE_URL}/create-checkout`, {
+          lead_id: leadIdInput.value,
+          business_name: getTrimmedValue("business_name"),
+          email: getTrimmedValue("email")
+        });
+
+        if (!checkoutResult.checkout_url) {
+          throw new Error("Missing checkout URL");
+        }
+
+        window.location.href = checkoutResult.checkout_url;
+      } catch (error) {
+        setStatus("Something went wrong, please try again", "error");
+        setLoading(false);
+      }
+    });
+  </script>
 </body>
 </html>
