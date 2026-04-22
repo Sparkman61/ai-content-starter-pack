@@ -143,7 +143,7 @@ async function handleCreateCheckout(request, env) {
   formData.set("metadata[lead_id]", lead_id);
   formData.set("metadata[business_name]", business_name);
   formData.set("customer_email", email);
-  formData.set("success_url", "https://269809ea.ai-content-starter-pack.pages.dev/success.html");
+  formData.set("success_url", "https://main.ai-content-starter-pack.pages.dev/success.html");
   formData.set("cancel_url", "https://269809ea.ai-content-starter-pack.pages.dev");
 
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
