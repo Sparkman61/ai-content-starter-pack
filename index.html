@@ -489,7 +489,6 @@
         <p>We review the quality of the submission before sending you to checkout so we can make sure there’s enough information to write compelling GBP content.</p>
 
         <form id="gbp-intake-form" novalidate>
-          <input type="hidden" id="lead_id" name="lead_id" value="" />
 
           <div class="field-grid">
             <div class="input-wrap">
@@ -610,11 +609,8 @@
     const form = document.getElementById("gbp-intake-form");
     const submitButton = document.getElementById("submit-button");
     const statusEl = document.getElementById("form-status");
-    const leadIdInput = document.getElementById("lead_id");
     const managerCheckbox = document.getElementById("manager_added");
 
-    const params = new URLSearchParams(window.location.search);
-    leadIdInput.value = params.get("lead_id") || "";
 
     function setStatus(message, type) {
       statusEl.textContent = message;
@@ -694,11 +690,21 @@
           return;
         }
 
-        const checkoutResult = await postJson(`${WORKER_BASE_URL}/create-checkout`, {
-          lead_id: leadIdInput.value,
+        const fullPayload = {
           business_name: getTrimmedValue("business_name"),
-          email: getTrimmedValue("email")
-        });
+          email: getTrimmedValue("email"),
+          phone: getTrimmedValue("phone"),
+          website_url: getTrimmedValue("website"),
+          business_description: getTrimmedValue("business_description"),
+          top_services: getTrimmedValue("top_services"),
+          hours: getTrimmedValue("hours"),
+          service_area: getTrimmedValue("service_area"),
+          gbp_url: getTrimmedValue("gbp_url"),
+          gbp_manager_invited: document.getElementById("manager_added").checked,
+          preferred_tone: document.getElementById("preferred_tone").value,
+        };
+
+        const checkoutResult = await postJson(`${WORKER_BASE_URL}/create-checkout`, fullPayload);
 
         if (!checkoutResult.checkout_url) {
           throw new Error("Missing checkout URL");

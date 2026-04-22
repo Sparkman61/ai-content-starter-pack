@@ -1,3 +1,4 @@
+const PIPELINE_API_URL = "https://jugular-museum-thorn.ngrok-free.dev/api/leads/create-from-intake";
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -126,21 +127,52 @@ async function handleQualityGate(request, env) {
 
 async function handleCreateCheckout(request, env) {
   const body = await parseRequestJson(request);
-  const {
-    lead_id = "",
-    business_name = "",
-    email = ""
-  } = body;
+  
+  // All fields from the form are now expected
+  const requiredFields = [
+    "business_name", "email", "phone", "website_url", 
+    "business_description", "top_services", "hours", "service_area",
+    "gbp_url", "gbp_manager_invited", "preferred_tone",
+  ];
 
-  if (!business_name || !email) {
-    return jsonResponse({ error: "business_name and email are required." }, 400);
+  const missing = requiredFields.filter(f => !(f in body));
+  if (missing.length > 0) {
+    return jsonResponse({ error: `Missing required fields: ${missing.join(", ")}` }, 400);
   }
+
+  let lead_id;
+  try {
+    const pipelineResponse = await fetch(PIPELINE_API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+
+    if (!pipelineResponse.ok) {
+      const errorText = await pipelineResponse.text();
+      console.error("Pipeline API error:", errorText);
+      throw new Error(`Pipeline API call failed: ${errorText}`);
+    }
+
+    const pipelineData = await pipelineResponse.json();
+    lead_id = pipelineData.lead_id;
+
+    if (!lead_id) {
+      throw new Error("lead_id not found in pipeline response");
+    }
+
+  } catch (error) {
+    console.error("Error calling pipeline API:", error);
+    return jsonResponse({ error: "Failed to create lead via pipeline." }, 500);
+  }
+
+  const { email, business_name } = body;
 
   const formData = new URLSearchParams();
   formData.set("mode", "payment");
   formData.set("line_items[0][price]", "price_1TIC8APxC44aX61EeIbceTGo");
   formData.set("line_items[0][quantity]", "1");
-  formData.set("metadata[lead_id]", lead_id);
+  formData.set("metadata[lead_id]", String(lead_id));
   formData.set("metadata[business_name]", business_name);
   formData.set("customer_email", email);
   formData.set("success_url", "https://main.ai-content-starter-pack.pages.dev/success.html");
