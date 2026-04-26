@@ -170,7 +170,7 @@ async function handleCreateCheckout(request, env) {
 
   const formData = new URLSearchParams();
   formData.set("mode", "payment");
-  formData.set("line_items[0][price]", "price_1TIC8APxC44aX61EeIbceTGo");
+  formData.set("line_items[0][price]", "price_1TPFTHPxC44aX61E4c7fswyJ");
   formData.set("line_items[0][quantity]", "1");
   formData.set("metadata[lead_id]", String(lead_id));
   formData.set("metadata[business_name]", business_name);
@@ -181,7 +181,7 @@ async function handleCreateCheckout(request, env) {
   const response = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.STRIPE_TEST_SECRET_KEY}`,
+      Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
       "Content-Type": "application/x-www-form-urlencoded"
     },
     body: formData
